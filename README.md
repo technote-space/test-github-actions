@@ -6,8 +6,14 @@
 ### PR Labeler
 https://github.com/TimonVS/pr-labeler-action
 
+### Pull Request Labeler
+https://github.com/actions/labeler
+
 ### Release Drafter
 https://github.com/toolmantim/release-drafter
+
+### Auto Assign
+https://github.com/kentaro-m/auto-assign/
 
 ## Resources
 - [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)
