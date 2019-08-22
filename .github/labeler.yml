@@ -1,14 +1,15 @@
 php:
-  - /**/*.php
+  - '**/*.php'
 javascript:
-  - /**/*.js
+  - '**/*.js'
 'dependencies':
-  - /**/*.lock
+  - '**/*.lock'
+  - '**/*-lock.json'
 
 'Type: Testing':
-  - /**/tests/*
-  - /**/test/*
-  - /**/__tests__/*
+  - '**/tests/*'
+  - '**/test/*'
+  - '**/__tests__/*'
 
 'Type: Documentation':
-  - /**/*.md
+  - '**/*.md'
