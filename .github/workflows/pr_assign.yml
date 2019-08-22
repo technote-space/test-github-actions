@@ -1,0 +1,12 @@
+on: pull_request
+name: Assign to PR
+jobs:
+  assign:
+    name: Auto Assign
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto Assign
+        if: github.event.action == 'opened'
+        uses: kentaro-m/auto-assign@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
