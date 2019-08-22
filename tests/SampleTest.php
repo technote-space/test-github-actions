@@ -31,4 +31,9 @@ class SampleTest extends TestCase
     {
         $this->assertEquals(0.5, (new Sample())->div(1, 2));
     }
+
+    public function testPow()
+    {
+        $this->assertEquals(8, (new Sample())->pow(2, 3));
+    }
 }
