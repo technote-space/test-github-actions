@@ -5,11 +5,8 @@ jobs:
     name: PR Labeler
     runs-on: ubuntu-latest
     steps:
-      - name: PR opened filter
-        uses: actions/bin/filter@master
-        with:
-          args: action opened
       - name: PR Labeler
+        if: github.event.action == 'opened'
         uses: TimonVS/pr-labeler@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -18,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull Request Labeler
+        if: github.event.action == 'opened'
         uses: actions/labeler@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
