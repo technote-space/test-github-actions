@@ -1,9 +1,9 @@
 php:
-  - ./**/*\.php
+  - ./**/*.php
 javascript:
-  - ./**/*\.js
+  - ./**/*.js
 'dependencies':
-  - ./**/*\.lock
+  - ./**/*.lock
 
 'Type: Testing':
   - ./**/tests/*
@@ -11,4 +11,4 @@ javascript:
   - ./**/__tests__/*
 
 'Type: Documentation':
-  - ./**/*\.md
+  - ./**/*.md
