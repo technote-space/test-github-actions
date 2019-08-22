@@ -21,4 +21,9 @@ class SampleTest extends TestCase
     {
         $this->assertEquals(-1, (new Sample())->sub(1, 2));
     }
+
+    public function testMul()
+    {
+        $this->assertEquals(2, (new Sample())->mul(1, 2));
+    }
 }
