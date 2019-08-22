@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Auto Assign
         if: github.event.action == 'opened'
-        uses: kentaro-m/auto-assign@master
+        uses: platanus/auto-assign@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
