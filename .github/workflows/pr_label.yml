@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: PR Labeler
         if: github.event.action == 'opened'
-        uses: TimonVS/pr-labeler@master
+        uses: technote-fork/pr-labeler-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   triage:
