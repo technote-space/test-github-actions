@@ -1,0 +1,14 @@
+php:
+  - ./**/*\.php
+javascript:
+  - ./**/*\.js
+'dependencies':
+  - ./**/*\.lock
+
+'Type: Testing':
+  - ./**/tests/*
+  - ./**/test/*
+  - ./**/__tests__/*
+
+'Type: Documentation':
+  - ./**/*\.md
