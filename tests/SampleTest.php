@@ -26,4 +26,9 @@ class SampleTest extends TestCase
     {
         $this->assertEquals(2, (new Sample())->mul(1, 2));
     }
+
+    public function testDiv()
+    {
+        $this->assertEquals(0.5, (new Sample())->div(1, 2));
+    }
 }
