@@ -1,0 +1,113 @@
+{
+    "name": "technote/test-github-actions",
+    "type": "library",
+    "license": "GPL-2.0+",
+    "description": "Test GitHub Actions",
+    "homepage": "https://github.com/technote-space/test-github-actions",
+    "keywords": [
+        "github",
+        "actions"
+    ],
+    "authors": [
+        {
+            "name": "Technote",
+            "email": "technote.space@gmail.com",
+            "homepage": "https://technote.space"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "~5.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Technote\\TestRepo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Technote\\TestRepo\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "codedungeon/phpunit-result-printer": "^0.26.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "php-coveralls/php-coveralls": "^2.1",
+        "phpmd/phpmd": "^2.6",
+        "phpunit/phpunit": "^8.0",
+        "squizlabs/php_codesniffer": "^3.4"
+    },
+    "scripts": {
+        "setup": [
+            "bash bin/setup.sh"
+        ],
+        "test": [
+            "@stage-lint",
+            "@stage-test"
+        ],
+        "stage-lint": [
+            "@bin:phpcs",
+            "@bin:phpmd",
+            "@bin:eslint",
+            "@bin:stylelint"
+        ],
+        "stage-test": [
+            "@bin:jest",
+            "@bin:phpunit"
+        ],
+        "phpcs": [
+            "phpcs --standard=./phpcs.xml"
+        ],
+        "phpmd": [
+            "phpmd ./src/,./tests/ text phpmd.xml"
+        ],
+        "phpunit": [
+            "phpunit --stop-on-failure --colors=always"
+        ],
+        "phpunit:no": [
+            "@phpunit --no-coverage"
+        ],
+        "eslint": [
+            "yarn lint"
+        ],
+        "jest": [
+            "yarn cover"
+        ],
+        "jest:update": [
+            "yarn test:update"
+        ],
+        "stylelint": [
+            "yarn stylelint"
+        ],
+        "bin:phpcs": [
+            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/phpcs.sh"
+        ],
+        "bin:phpmd": [
+            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/phpmd.sh"
+        ],
+        "bin:eslint": [
+            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/eslint.sh"
+        ],
+        "bin:stylelint": [
+            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/stylelint.sh"
+        ],
+        "bin:jest": [
+            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/test/jest.sh"
+        ],
+        "bin:phpunit": [
+            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/test/phpunit.sh"
+        ],
+        "coveralls-php": [
+            "php-coveralls -v"
+        ],
+        "coveralls-js": [
+            "yarn coveralls"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "process-timeout": 1200
+    }
+}
