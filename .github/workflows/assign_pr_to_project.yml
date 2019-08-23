@@ -1,13 +1,13 @@
-on: issues
-name: Assign issues to project
+on: pull_request
+name: Assign PRs to project
 jobs:
   assign:
-    name: Auto assign issues
+    name: Auto assign PRs
     runs-on: ubuntu-latest
     steps:
-      - name: Auto assign issues
+      - name: Auto assign PRs
         if: github.event.action == 'opened'
-        uses: alex-page/add-new-issue-project@master
+        uses: alex-page/add-new-pulls-project@master
         with:
           args: "Backlog To\ do"
         env:
