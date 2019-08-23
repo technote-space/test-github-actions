@@ -9,6 +9,6 @@ jobs:
         if: github.event.action == 'opened'
         uses: alex-page/add-new-issue-project@master
         with:
-          args: "Backlog To\ do"
+          args: "Backlog \"To do\""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign PullRequest to Project
-        if: github.event.action == 'opened'
+#        if: github.event.action == 'opened'
         uses: alex-page/add-new-pulls-project@master
         with:
-          args: "Backlog To\ do"
+          args: "Backlog \"To do\""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
