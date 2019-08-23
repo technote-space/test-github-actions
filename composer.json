@@ -41,6 +41,16 @@
         "setup": [
             "bash bin/setup.sh"
         ],
+        "prepare": [
+            "@prepare:php",
+            "@prepare:js"
+        ],
+        "prepare:php": [
+            "composer install --no-interaction --prefer-dist --no-suggest"
+        ],
+        "prepare:js": [
+            "yarn install"
+        ],
         "test": [
             "@stage-lint",
             "@stage-test"

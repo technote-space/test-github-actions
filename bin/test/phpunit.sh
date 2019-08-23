@@ -6,8 +6,8 @@ echo ""
 echo ">> Run composer phpunit"
 composer phpunit
 
-if [[ -n "${CI}" ]]; then
-  ls -la "${TRAVIS_BUILD_DIR}"/coverage/php/clover.xml
+if [[ -n "${GITHUB_WORKSPACE}" ]]; then
+  ls -la "${GITHUB_WORKSPACE}"/coverage/php/clover.xml
   echo ""
   echo ">> Run composer coveralls"
   composer coveralls-php
