@@ -7,10 +7,9 @@ echo ">> Run composer jest"
 composer jest
 
 if [[ -n "${COVERALLS_REPO_TOKEN}" ]]; then
-  export COVERALLS_SERVICE_NAME="GitHub Action"
-  export COVERALLS_SERVICE_JOB_ID=${GITHUB_SHA}
-  ls -la "${GITHUB_WORKSPACE}"/coverage/js/lcov.info
+  ls -la "${GITHUB_WORKSPACE}"/coverage/js/clover.xml
+
   echo ""
   echo ">> Run yarn coveralls."
-  composer coveralls-js
+  bash "${GITHUB_WORKSPACE}"/bin/coverage/coveralls.sh "${GITHUB_WORKSPACE}"/coverage/js/clover.xml
 fi

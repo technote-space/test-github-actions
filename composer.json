@@ -32,7 +32,6 @@
     "require-dev": {
         "codedungeon/phpunit-result-printer": "^0.26.2",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-        "php-coveralls/php-coveralls": "^2.1",
         "phpmd/phpmd": "^2.6",
         "phpunit/phpunit": "^8.0",
         "squizlabs/php_codesniffer": "^3.4"
@@ -106,12 +105,6 @@
         ],
         "bin:phpunit": [
             "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/test/phpunit.sh"
-        ],
-        "coveralls-php": [
-            "php-coveralls -v"
-        ],
-        "coveralls-js": [
-            "yarn coveralls"
         ]
     },
     "config": {
