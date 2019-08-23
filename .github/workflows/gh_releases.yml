@@ -1,4 +1,6 @@
-on: push
+push:
+  branches:
+    - master
 name: GitHub Releases
 jobs:
   draftRelease:
