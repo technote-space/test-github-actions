@@ -7,6 +7,7 @@ echo ">> Run composer phpunit"
 composer phpunit
 
 if [[ -n "${COVERALLS_REPO_TOKEN}" ]]; then
+  export COVERALLS_RUN_LOCALLY=1
   export CI_NAME="GitHub Action"
   export CI_JOB_ID=${GITHUB_SHA}
   ls -la "${GITHUB_WORKSPACE}"/coverage/php/clover.xml
