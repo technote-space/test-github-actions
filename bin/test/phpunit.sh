@@ -6,9 +6,10 @@ echo ""
 echo ">> Run composer phpunit"
 composer phpunit
 
-if [[ -n "${CI}" ]]; then
-  ls -la "${TRAVIS_BUILD_DIR}"/coverage/php/clover.xml
+if [[ -n "${COVERALLS_REPO_TOKEN}" ]]; then
+  ls -la "${GITHUB_WORKSPACE}"/coverage/php/clover.xml
+
   echo ""
   echo ">> Run composer coveralls"
-  composer coveralls-php
+  bash "${GITHUB_WORKSPACE}"/bin/coverage/coveralls.sh "${GITHUB_WORKSPACE}"/coverage/php/clover.xml
 fi

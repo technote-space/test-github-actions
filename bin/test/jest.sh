@@ -6,9 +6,10 @@ echo ""
 echo ">> Run composer jest"
 composer jest
 
-if [[ -n "${CI}" ]]; then
-  ls -la "${TRAVIS_BUILD_DIR}"/coverage/js/lcov.info
+if [[ -n "${COVERALLS_REPO_TOKEN}" ]]; then
+  ls -la "${GITHUB_WORKSPACE}"/coverage/js/clover.xml
+
   echo ""
   echo ">> Run yarn coveralls."
-  composer coveralls-js
+  bash "${GITHUB_WORKSPACE}"/bin/coverage/coveralls.sh "${GITHUB_WORKSPACE}"/coverage/js/clover.xml
 fi
