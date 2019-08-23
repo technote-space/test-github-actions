@@ -129,6 +129,7 @@ jobs:
   slack:
     name: Slack
     needs: [jest, phpunit]
+    runs-on: ubuntu-latest
     steps:
       - uses: 8398a7/action-slack@v1
         with:
