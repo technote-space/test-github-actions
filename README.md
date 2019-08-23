@@ -2,22 +2,27 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/jquery.marker-animation/blob/master/LICENSE)
 
-## Third party actions
-### PR Labeler
-https://github.com/TimonVS/pr-labeler-action
+## Issue Opened
+- [Add new issues to project](https://github.com/alex-page/add-new-issue-project)
 
-### Pull Request Labeler
-https://github.com/actions/labeler
+## Pull Request Opened
+- [Add new pull requests to project](https://github.com/alex-page/add-new-pulls-project)
+- [Auto Assign](https://github.com/platanus/auto-assign/)
+- [PR Labeler](https://github.com/TimonVS/pr-labeler-action)
 
-### Release Drafter
-https://github.com/toolmantim/release-drafter
+## Pull Request Updated
+- [Pull Request Labeler](https://github.com/actions/labeler)
 
-### Auto Assign
-https://github.com/kentaro-m/auto-assign/
+## GitHub Releases
+- [Release Drafter](https://github.com/toolmantim/release-drafter)
+
+## Slack
+- [Action Slack](https://github.com/8398a7/action-slack)
 
 ## Resources
 - [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)
 - [Automating your workflow with GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions)
+- [Awesome Actions](https://github.com/sdras/awesome-actions)
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
