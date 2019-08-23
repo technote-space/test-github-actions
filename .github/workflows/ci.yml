@@ -1,0 +1,139 @@
+on:
+  push:
+    branches:
+      - master
+      - release/*
+
+name: CI
+
+jobs:
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install Package dependencies
+        run: composer prepare:js
+      - name: Check code style
+        run: bash bin/check/eslint.sh
+      - uses: 8398a7/action-slack@v1
+        with:
+          type: failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure()
+  stylelint:
+    name: stylelint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install Package dependencies
+        run: composer prepare:js
+      - name: Check code style
+        run: bash bin/check/stylelint.sh
+      - uses: 8398a7/action-slack@v1
+        with:
+          type: failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure()
+  phpcs:
+    name: PHP Code Sniffer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install Composer dependencies
+        run: composer prepare:php
+      - name: Check code style
+        run: bash bin/check/phpcs.sh
+      - uses: 8398a7/action-slack@v1
+        with:
+          type: failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure()
+  phpmd:
+    name: PHPMD
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install Composer dependencies
+        run: composer prepare:php
+      - name: Check code style
+        run: bash bin/check/phpmd.sh
+      - uses: 8398a7/action-slack@v1
+        with:
+          type: failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure()
+
+  jest:
+    name: Jest
+    needs: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install Composer dependencies
+        run: composer prepare:php
+      - name: Run tests
+        run: bash bin/check/jest.sh
+      - uses: 8398a7/action-slack@v1
+        with:
+          type: failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure()
+  phpunit:
+    name: PHPUnit
+    needs: [phpcs, phpmd]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.1', '7.2', '7.3']
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Switch PHP version
+        env:
+          PHP_VERSION: ${{ matrix.php }}
+        run: sudo ln -sf "/usr/bin/php$PHP_VERSION" /etc/alternatives/php
+      - name: Install Composer dependencies
+        run: composer prepare:php
+      - name: Run tests
+        run: bash bin/check/phpunit.sh
+      - uses: 8398a7/action-slack@v1
+        with:
+          type: failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure()
+
+  slack:
+    name: Slack
+    needs: [jest, phpunit]
+    steps:
+      - uses: 8398a7/action-slack@v1
+        with:
+          type: success
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: success()
