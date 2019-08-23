@@ -1,8 +1,4 @@
-on:
-  push:
-    branches:
-      - master
-      - release/*
+on: pull_request
 
 name: CI
 
