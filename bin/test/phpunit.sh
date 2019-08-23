@@ -6,7 +6,8 @@ echo ""
 echo ">> Run composer phpunit"
 composer phpunit
 
-if [[ -n "${GITHUB_WORKSPACE}" ]]; then
+if [[ -n "${COVERALLS_REPO_TOKEN}" ]]; then
+  export COVERALLS_SERVICE_NAME="GitHub Action"
   ls -la "${GITHUB_WORKSPACE}"/coverage/php/clover.xml
   echo ""
   echo ">> Run composer coveralls"

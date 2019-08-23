@@ -6,7 +6,8 @@ echo ""
 echo ">> Run composer jest"
 composer jest
 
-if [[ -n "${GITHUB_WORKSPACE}" ]]; then
+if [[ -n "${COVERALLS_REPO_TOKEN}" ]]; then
+  export COVERALLS_SERVICE_NAME="GitHub Action"
   ls -la "${GITHUB_WORKSPACE}"/coverage/js/lcov.info
   echo ""
   echo ">> Run yarn coveralls."
