@@ -11,7 +11,7 @@
         "cover:update": "jest --coverage --updateSnapshot",
         "stylelint": "stylelint resources/sass/**/**/*.scss",
         "develop": "webpack --mode development --config webpack.config.js",
-        "build": "webpack --mode production --config webpack.config.js",
+        "build": "webpack --mode production --config webpack.config.js"
     },
     "author": "Technote <technote.space@gmail.com> (https://technote.space)",
     "license": "MIT",
