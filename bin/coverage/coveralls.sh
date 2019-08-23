@@ -18,9 +18,11 @@ fi
 
 echo ""
 echo ">> Install coveralls."
+rm -f composer.json
+echo "{}" >>composer.json
 composer config repositories.technote-fork/php-coveralls vcs https://github.com/technote-fork/php-coveralls
 composer require --dev technote-fork/php-coveralls:dev-master
 
 echo ""
 echo ">> Run coveralls."
-php ${GITHUB_WORKSPACE}/vendor/bin/php-coveralls -v --coverage_clover "${1}"
+php vendor/bin/php-coveralls -v --coverage_clover "${1}"
