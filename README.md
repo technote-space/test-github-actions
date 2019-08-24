@@ -1,5 +1,6 @@
 # Test GitHub Actions
 
+[![Build Status](https://github.com/technote-space/test-github-actions/workflows/Build/badge.svg)](https://github.com/technote-space/test-github-actions/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/jquery.marker-animation/blob/master/LICENSE)
 
 ## Issue Opened
