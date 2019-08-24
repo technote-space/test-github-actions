@@ -2,7 +2,7 @@ php:
   - '**/*.php'
 javascript:
   - '**/*.js'
-'dependencies':
+dependencies:
   - '**/*.lock'
   - '**/*-lock.json'
 
