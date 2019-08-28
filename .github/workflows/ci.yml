@@ -1,4 +1,9 @@
-on: pull_request
+on:
+  push:
+    branches:
+      - "*"
+    tags:
+      - "!*"
 
 name: Build
 
