@@ -10,7 +10,6 @@
 
 ### Pull Request Opened
 - [Add new pull requests to project](https://github.com/alex-page/add-new-pulls-project)
-- [Auto Assign](https://github.com/platanus/auto-assign/)
 - [PR Labeler](https://github.com/TimonVS/pr-labeler-action)
 
 ### Pull Request Updated
@@ -28,6 +27,12 @@
 - [Awesome Actions](https://github.com/sdras/awesome-actions)
 
 ## What I Created
+
+### Issue Opened
+- [Assign Author](https://github.com/technote-space/assign-author)
+
+### Pull Request Opened
+- [Assign Author](https://github.com/technote-space/assign-author)
 
 ### Project card moved
 - [Auto card labeler](https://github.com/technote-space/auto-card-labeler)
