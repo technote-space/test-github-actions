@@ -13,13 +13,13 @@
   - [Pull Request Updated](#pull-request-updated)
   - [GitHub Releases](#github-releases)
   - [Slack](#slack)
-  - [Resources](#resources)
 - [What I Created](#what-i-created)
   - [Issue Opened](#issue-opened-1)
   - [Pull Request Opened](#pull-request-opened-1)
   - [Project card moved](#project-card-moved)
   - [Released](#released)
   - [Push](#push)
+- [Resources](#resources)
 - [Author](#author)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
