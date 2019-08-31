@@ -3,6 +3,27 @@
 [![Build Status](https://github.com/technote-space/test-github-actions/workflows/Build/badge.svg)](https://github.com/technote-space/test-github-actions/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/jquery.marker-animation/blob/master/LICENSE)
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [What I Tried](#what-i-tried)
+  - [Issue Opened](#issue-opened)
+  - [Pull Request Opened](#pull-request-opened)
+  - [Pull Request Updated](#pull-request-updated)
+  - [GitHub Releases](#github-releases)
+  - [Slack](#slack)
+  - [Resources](#resources)
+- [What I Created](#what-i-created)
+  - [Issue Opened](#issue-opened-1)
+  - [Pull Request Opened](#pull-request-opened-1)
+  - [Project card moved](#project-card-moved)
+  - [Released](#released)
+  - [Push](#push)
+- [Author](#author)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## What I Tried
 
 ### Issue Opened
@@ -39,6 +60,9 @@
 
 ### Released
 - [Release GitHub Actions](https://github.com/technote-space/release-github-actions)
+
+### Push
+- [TOC Generator](https://github.com/technote-space/toc-generator)
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
