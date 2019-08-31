@@ -13,13 +13,13 @@
   - [Pull Request Updated](#pull-request-updated)
   - [GitHub Releases](#github-releases)
   - [Slack](#slack)
-  - [Resources](#resources)
 - [What I Created](#what-i-created)
   - [Issue Opened](#issue-opened-1)
   - [Pull Request Opened](#pull-request-opened-1)
   - [Project card moved](#project-card-moved)
   - [Released](#released)
   - [Push](#push)
+- [Resources](#resources)
 - [Author](#author)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -42,11 +42,6 @@
 ### Slack
 - [Action Slack](https://github.com/8398a7/action-slack)
 
-### Resources
-- [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)
-- [Automating your workflow with GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions)
-- [Awesome Actions](https://github.com/sdras/awesome-actions)
-
 ## What I Created
 
 ### Issue Opened
@@ -63,6 +58,11 @@
 
 ### Push
 - [TOC Generator](https://github.com/technote-space/toc-generator)
+
+## Resources
+- [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)
+- [Automating your workflow with GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions)
+- [Awesome Actions](https://github.com/sdras/awesome-actions)
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
