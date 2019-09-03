@@ -27,10 +27,10 @@
 ## What I Tried
 
 ### Issue Opened
-- [Add new issues to project](https://github.com/alex-page/add-new-issue-project)
+- [GitHub Project Automation+](https://github.com/alex-page/github-project-automation-plus)
 
 ### Pull Request Opened
-- [Add new pull requests to project](https://github.com/alex-page/add-new-pulls-project)
+- [GitHub Project Automation+](https://github.com/alex-page/github-project-automation-plus)
 - [PR Labeler](https://github.com/TimonVS/pr-labeler-action)
 
 ### Pull Request Updated
