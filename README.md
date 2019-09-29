@@ -55,9 +55,11 @@
 
 ### Released
 - [Release GitHub Actions](https://github.com/technote-space/release-github-actions)
+- [Package Version Check Action](https://github.com/technote-space/package-version-check-action)
 
 ### Push
 - [TOC Generator](https://github.com/technote-space/toc-generator)
+- [Package Version Check Action](https://github.com/technote-space/package-version-check-action)
 
 ## Resources
 - [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)

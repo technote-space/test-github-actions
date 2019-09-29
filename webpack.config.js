@@ -1,6 +1,5 @@
 const SpeedMeasurePlugin = require( 'speed-measure-webpack-plugin' );
 const DuplicatePackageCheckerPlugin = require( 'duplicate-package-checker-webpack-plugin' );
-const smp = new SpeedMeasurePlugin();
 const webpack = require( 'webpack' );
 const pkg = require( './package' );
 const path = require( 'path' );
@@ -31,4 +30,4 @@ const webpackConfig = {
 	],
 };
 
-module.exports = smp.wrap( webpackConfig );
+module.exports = ( new SpeedMeasurePlugin() ).wrap( webpackConfig );
