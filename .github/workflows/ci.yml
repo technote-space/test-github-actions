@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          fetch-depth: 1
+          fetch-depth: 3
       - name: Install Package dependencies
         run: composer prepare:js
       - name: Check code style
@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          fetch-depth: 1
+          fetch-depth: 3
       - name: Install Package dependencies
         run: composer prepare:js
       - name: Check code style
@@ -51,7 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          fetch-depth: 1
+          fetch-depth: 3
       - name: Install Composer dependencies
         run: composer prepare:php
       - name: Check code style
@@ -69,7 +69,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          fetch-depth: 1
+          fetch-depth: 3
       - name: Install Composer dependencies
         run: composer prepare:php
       - name: Check code style
@@ -89,7 +89,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          fetch-depth: 1
+          fetch-depth: 3
       - name: Install Package dependencies
         run: composer prepare:js
       - name: Run tests
@@ -113,7 +113,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          fetch-depth: 1
+          fetch-depth: 3
       - name: Switch PHP version
         env:
           PHP_VERSION: ${{ matrix.php }}
