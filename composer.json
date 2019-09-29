@@ -89,22 +89,22 @@
             "yarn stylelint"
         ],
         "bin:phpcs": [
-            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/phpcs.sh"
+            "bash bin/check/phpcs.sh"
         ],
         "bin:phpmd": [
-            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/phpmd.sh"
+            "bash bin/check/phpmd.sh"
         ],
         "bin:eslint": [
-            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/eslint.sh"
+            "bash bin/check/eslint.sh"
         ],
         "bin:stylelint": [
-            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/check/stylelint.sh"
+            "bash bin/check/stylelint.sh"
         ],
         "bin:jest": [
-            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/test/jest.sh"
+            "bash bin/test/jest.sh"
         ],
         "bin:phpunit": [
-            "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) bash bin/test/phpunit.sh"
+            "bash bin/test/phpunit.sh"
         ]
     },
     "config": {
