@@ -88,10 +88,16 @@
     "stylelint": [
       "yarn stylelint"
     ],
-    "update:packages": [
-      "yarn update",
+    "update:node": [
+      "yarn update"
+    ],
+    "update:composer": [
       "composer require laravel/framework",
       "composer require --dev codedungeon/phpunit-result-printer dealerdirect/phpcodesniffer-composer-installer phpmd/phpmd phpunit/phpunit squizlabs/php_codesniffer"
+    ],
+    "update:packages": [
+      "@update:node",
+      "@update:composer"
     ]
   },
   "config": {
