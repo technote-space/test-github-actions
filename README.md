@@ -9,17 +9,18 @@
 **Table of Contents**
 
 - [What I Tried](#what-i-tried)
-  - [Issue Opened](#issue-opened)
-  - [Pull Request Opened](#pull-request-opened)
-  - [Pull Request Updated](#pull-request-updated)
+  - [Issue opened](#issue-opened)
+  - [Pull Request opened](#pull-request-opened)
+  - [Pull Request updated](#pull-request-updated)
   - [GitHub Releases](#github-releases)
   - [Slack](#slack)
 - [What I Created](#what-i-created)
-  - [Issue Opened](#issue-opened-1)
-  - [Pull Request Opened](#pull-request-opened-1)
+  - [Issue opened](#issue-opened-1)
+  - [Pull Request opened](#pull-request-opened-1)
   - [Project card moved](#project-card-moved)
   - [Released](#released)
   - [Push](#push)
+  - [Schedule](#schedule)
 - [Resources](#resources)
 - [Author](#author)
 
