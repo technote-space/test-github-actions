@@ -4,6 +4,5 @@ Thumbs.db
 /coverage
 /vendor
 /node_modules
-composer.lock
 .phpunit.result.cache
 /*.min.js
