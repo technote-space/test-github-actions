@@ -27,14 +27,14 @@
 
 ## What I Tried
 
-### Issue Opened
+### Issue opened
 - [GitHub Project Automation+](https://github.com/alex-page/github-project-automation-plus)
 
-### Pull Request Opened
+### Pull Request opened
 - [GitHub Project Automation+](https://github.com/alex-page/github-project-automation-plus)
 - [PR Labeler](https://github.com/TimonVS/pr-labeler-action)
 
-### Pull Request Updated
+### Pull Request updated
 - [Pull Request Labeler](https://github.com/actions/labeler)
 
 ### GitHub Releases
@@ -45,10 +45,10 @@
 
 ## What I Created
 
-### Issue Opened
+### Issue opened
 - [Assign Author](https://github.com/technote-space/assign-author)
 
-### Pull Request Opened
+### Pull Request opened
 - [Assign Author](https://github.com/technote-space/assign-author)
 
 ### Project card moved
@@ -61,6 +61,9 @@
 ### Push
 - [TOC Generator](https://github.com/technote-space/toc-generator)
 - [Package Version Check Action](https://github.com/technote-space/package-version-check-action)
+
+### Schedule
+- [Create PR Action](https://github.com/technote-space/create-pr-action)
 
 ## Resources
 - [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)
