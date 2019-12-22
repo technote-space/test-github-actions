@@ -1,5 +1,5 @@
 module.exports = {
-    verbose: false,
+    verbose: true,
     testRegex: 'resources/js/__tests__/.*\.js$',
     transform: {
         '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
