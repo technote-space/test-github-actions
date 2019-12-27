@@ -1,6 +1,6 @@
 {
     "name": "test-github-actions",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Test GitHub Actions",
     "scripts": {
         "start": "yarn build",
