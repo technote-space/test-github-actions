@@ -37,7 +37,7 @@ class SampleTest extends TestCase
         $this->assertEquals(8, (new Sample())->pow(2, 3));
     }
 
-    public function _testPow()
+    public function testPow()
     {
         $this->assertEquals(8, (new Sample())->pow(2, 3));
     }
