@@ -250,10 +250,20 @@ jobs:
         env:
           PHP_VERSION: ${{ matrix.php }}
         run: sudo ln -sf "/usr/bin/php$PHP_VERSION" /etc/alternatives/php
+      - uses: technote-space/get-diff-action@v1
+        with:
+          PREFIX_FILTER: |
+            src/
+            tests/
+          SUFFIX_FILTER: .php
+          FILES: |
+            phpunit.xml
+            composer.lock
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
+        if: env.GIT_DIFF || github.event_name == 'push'
       - name: Cache composer modules
         uses: actions/cache@v1
         with:
@@ -261,10 +271,13 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
+        if: env.GIT_DIFF || github.event_name == 'push'
       - name: Install Composer dependencies
         run: composer install
+        if: env.GIT_DIFF || github.event_name == 'push'
       - name: Run tests
         run: composer phpunit
+        if: env.GIT_DIFF || github.event_name == 'push'
       - name: Codecov
         run: |
           if [ -n "$CODECOV_TOKEN" ]; then
@@ -273,7 +286,7 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           COVERAGE_FILE: ./coverage/php/clover.xml
-        if: matrix.php == '7.3'
+        if: matrix.php == '7.3' && (env.GIT_DIFF || github.event_name == 'push')
       - uses: 8398a7/action-slack@v1
         with:
           type: failure
