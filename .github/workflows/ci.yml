@@ -8,6 +8,10 @@ on:
 
 name: CI
 
+env:
+  CI: 1
+  TRAVIS_BUILD_DIR: ${{ github.workspace }}
+
 jobs:
   eslint:
     name: ESLint
