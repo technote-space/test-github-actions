@@ -1,8 +1,10 @@
 on:
   schedule:
-    - cron: 0 17 * * *
+    - cron: 0 9 * * 0
   pull_request:
     types: [opened, synchronize, reopened, closed]
+  repository_dispatch:
+    types: [update-deps]
 
 name: Update dependencies
 jobs:

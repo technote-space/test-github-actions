@@ -29,17 +29,17 @@
 ## What I Tried
 
 ### Issue opened
-- [GitHub Project Automation+](https://github.com/alex-page/github-project-automation-plus)
+- [GitHub Project Automation+](https://github.com/technote-space/create-project-card-action)
 
 ### Pull Request opened
-- [GitHub Project Automation+](https://github.com/alex-page/github-project-automation-plus)
-- [PR Labeler](https://github.com/TimonVS/pr-labeler-action)
+- [GitHub Project Automation+](https://github.com/technote-space/create-project-card-action)
+- [PR Labeler](https://github.com/technote-space/pr-labeler-action)
 
 ### Pull Request updated
 - [Pull Request Labeler](https://github.com/actions/labeler)
 
 ### GitHub Releases
-- [Release Drafter](https://github.com/toolmantim/release-drafter)
+- [Release Drafter](https://github.com/release-drafter/release-drafter)
 
 ### Slack
 - [Action Slack](https://github.com/8398a7/action-slack)
