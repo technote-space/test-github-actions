@@ -33,9 +33,4 @@ class Sample
     {
         return $item1 ** $item2;
     }
-
-    public function _pow($item1, $item2)
-    {
-        return $item1 ** $item2;
-    }
 }
