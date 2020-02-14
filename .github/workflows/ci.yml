@@ -222,6 +222,7 @@ jobs:
             .js
             .ts
             .vue
+            .snap
           FILES: |
             yarn.lock
             jest.config.js
