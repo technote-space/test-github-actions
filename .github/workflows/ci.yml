@@ -52,7 +52,7 @@ jobs:
         run: yarn install
         if: env.RUNNING
       - name: Check code style
-        run: yarn eslint ${{ env.RUNNING }}
+        run: yarn eslint ${{ env.GIT_DIFF }}
         if: env.RUNNING
       - uses: 8398a7/action-slack@v2
         with:
@@ -100,7 +100,7 @@ jobs:
         run: yarn install
         if: env.RUNNING
       - name: Check code style
-        run: yarn stylelint ${{ env.RUNNING }}
+        run: yarn stylelint ${{ env.GIT_DIFF }}
         if: env.RUNNING
       - uses: 8398a7/action-slack@v2
         with:
@@ -145,7 +145,7 @@ jobs:
         run: composer install
         if: env.RUNNING
       - name: Check code style
-        run: vendor/bin/phpcs --standard=./phpcs.xml ${{ env.RUNNING }}
+        run: vendor/bin/phpcs --standard=./phpcs.xml ${{ env.GIT_DIFF }}
         if: env.RUNNING
       - uses: 8398a7/action-slack@v2
         with:
@@ -191,7 +191,7 @@ jobs:
         run: composer install
         if: env.RUNNING
       - name: Check code style
-        run: vendor/bin/phpmd ${{ env.RUNNING }} ansi phpmd.xml
+        run: vendor/bin/phpmd ${{ env.GIT_DIFF }} ansi phpmd.xml
         if: env.RUNNING
       - uses: 8398a7/action-slack@v2
         with:
