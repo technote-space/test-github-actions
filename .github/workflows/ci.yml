@@ -17,19 +17,29 @@ jobs:
     name: ESLint
     runs-on: ubuntu-latest
     steps:
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::1"
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 3
+      - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PREFIX_FILTER: |
-            resources/js/
-          SUFFIX_FILTER: .js
+            resources/
+          SUFFIX_FILTER: |
+            .js
+            .ts
+            .vue
           FILES: .eslintrc
+        if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::"
+        if: "! env.GIT_DIFF"
+
       - name: Get Yarn Cache Directory
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Cache node dependencies
         uses: actions/cache@v1
         with:
@@ -37,16 +47,16 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Install Package dependencies
         run: yarn install
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Check code style
-        run: yarn eslint ${{ env.GIT_DIFF }}
-        if: env.GIT_DIFF
-      - uses: 8398a7/action-slack@v1
+        run: yarn eslint ${{ env.RUNNING }}
+        if: env.RUNNING
+      - uses: 8398a7/action-slack@v2
         with:
-          type: failure
+          status: failure
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -56,19 +66,28 @@ jobs:
     name: stylelint
     runs-on: ubuntu-latest
     steps:
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::1"
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 3
+      - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PREFIX_FILTER: |
-            resources/scss/
-          SUFFIX_FILTER: .scss
+            resources/
+          SUFFIX_FILTER: |
+            .scss
+            .css
           FILES: .stylelintrc.json
+        if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::"
+        if: "! env.GIT_DIFF"
+
       - name: Get Yarn Cache Directory
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Cache node dependencies
         uses: actions/cache@v1
         with:
@@ -76,16 +95,16 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Install Package dependencies
         run: yarn install
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Check code style
-        run: yarn stylelint ${{ env.GIT_DIFF }}
-        if: env.GIT_DIFF
-      - uses: 8398a7/action-slack@v1
+        run: yarn stylelint ${{ env.RUNNING }}
+        if: env.RUNNING
+      - uses: 8398a7/action-slack@v2
         with:
-          type: failure
+          status: failure
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -95,21 +114,25 @@ jobs:
     name: PHP Code Sniffer
     runs-on: ubuntu-latest
     steps:
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::1"
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 3
+      - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
         with:
-          PREFIX_FILTER: |
-            src/
-            tests/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUFFIX_FILTER: .php
           FILES: phpcs.xml
+        if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::"
+        if: "! env.GIT_DIFF"
+
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Cache composer modules
         uses: actions/cache@v1
         with:
@@ -117,16 +140,16 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Install Composer dependencies
         run: composer install
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Check code style
-        run: vendor/bin/phpcs --standard=./phpcs.xml ${{ env.GIT_DIFF }}
-        if: env.GIT_DIFF
-      - uses: 8398a7/action-slack@v1
+        run: vendor/bin/phpcs --standard=./phpcs.xml ${{ env.RUNNING }}
+        if: env.RUNNING
+      - uses: 8398a7/action-slack@v2
         with:
-          type: failure
+          status: failure
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -136,22 +159,26 @@ jobs:
     name: PHPMD
     runs-on: ubuntu-latest
     steps:
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::1"
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 3
+      - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
         with:
-          PREFIX_FILTER: |
-            src/
-            tests/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUFFIX_FILTER: .php
-          FILES: phpmd.xml
           SEPARATOR: ','
+          FILES: phpmd.xml
+        if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::"
+        if: "! env.GIT_DIFF"
+
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Cache composer modules
         uses: actions/cache@v1
         with:
@@ -159,51 +186,67 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Install Composer dependencies
         run: composer install
-        if: env.GIT_DIFF
+        if: env.RUNNING
       - name: Check code style
-        run: vendor/bin/phpmd ${{ env.GIT_DIFF }} ansi phpmd.xml
-        if: env.GIT_DIFF
-      - uses: 8398a7/action-slack@v1
+        run: vendor/bin/phpmd ${{ env.RUNNING }} ansi phpmd.xml
+        if: env.RUNNING
+      - uses: 8398a7/action-slack@v2
         with:
-          type: failure
+          status: failure
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: failure()
 
-  jest:
-    name: Jest
+  cover:
+    name: Coverage
     needs: eslint
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['10', '11', '12']
+        node: ['11', '12']
     steps:
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::1"
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 3
+      - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PREFIX_FILTER: |
-            resources/js/
+            resources/
           SUFFIX_FILTER: |
             .js
-            .snap
+            .ts
+            .vue
           FILES: |
             yarn.lock
             jest.config.js
+        if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::"
+        if: "! env.GIT_DIFF"
+      - name: Set running flag
+        if: matrix.node == '12' && startsWith(github.ref, 'refs/tags/')
+        run: echo "::set-env name=RUNNING::1"
+      - name: Set running flag
+        run: |
+          if [[ ! -f package.json ]] || ! < package.json jq -r '.scripts | keys[]' | grep -qe '^cover$'; then
+            echo "::set-env name=RUNNING::"
+          fi
+
       - name: Setup node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Get Yarn Cache Directory
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Cache node dependencies
         uses: actions/cache@v1
         with:
@@ -211,13 +254,13 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Install Package dependencies
         run: yarn install
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Run tests
         run: yarn cover
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Codecov
         run: |
           if [ -n "$CODECOV_TOKEN" ]; then
@@ -226,10 +269,10 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           COVERAGE_FILE: ./coverage/js/lcov.info
-        if: matrix.node == '12' && (env.GIT_DIFF || github.event_name == 'push')
-      - uses: 8398a7/action-slack@v1
+        if: env.RUNNING && matrix.node == '12'
+      - uses: 8398a7/action-slack@v2
         with:
-          type: failure
+          status: failure
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -243,27 +286,38 @@ jobs:
       matrix:
         php: ['7.2', '7.3']
     steps:
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::1"
       - uses: actions/checkout@v2
+      - uses: technote-space/get-git-comment-action@v1
+      - uses: technote-space/get-diff-action@v1
         with:
-          fetch-depth: 3
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SUFFIX_FILTER: .php
+          FILES: composer.lock
+        if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
+      - name: Set running flag
+        run: echo "::set-env name=RUNNING::"
+        if: "! env.GIT_DIFF"
+      - name: Set running flag
+        if: matrix.SEND_CODECOV == 1 && startsWith(github.ref, 'refs/tags/')
+        run: echo "::set-env name=RUNNING::1"
+      - name: Set running flag
+        run: |
+          if [[ ! -f composer.json ]] || ! < composer.json jq -r '.scripts | keys[]' | grep -qe '^phpunit$'; then
+            echo "::set-env name=RUNNING::"
+          fi
+
       - name: Switch PHP version
         env:
           PHP_VERSION: ${{ matrix.php }}
         run: sudo ln -sf "/usr/bin/php$PHP_VERSION" /etc/alternatives/php
-      - uses: technote-space/get-diff-action@v1
-        with:
-          PREFIX_FILTER: |
-            src/
-            tests/
-          SUFFIX_FILTER: .php
-          FILES: |
-            phpunit.xml
-            composer.lock
+        if: env.RUNNING
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Cache composer modules
         uses: actions/cache@v1
         with:
@@ -271,13 +325,13 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Install Composer dependencies
         run: composer install
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Run tests
         run: composer phpunit
-        if: env.GIT_DIFF || github.event_name == 'push'
+        if: env.RUNNING
       - name: Codecov
         run: |
           if [ -n "$CODECOV_TOKEN" ]; then
@@ -286,10 +340,10 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           COVERAGE_FILE: ./coverage/php/clover.xml
-        if: matrix.php == '7.3' && (env.GIT_DIFF || github.event_name == 'push')
-      - uses: 8398a7/action-slack@v1
+        if: matrix.php == '7.3' && (env.RUNNING)
+      - uses: 8398a7/action-slack@v2
         with:
-          type: failure
+          status: failure
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -300,9 +354,9 @@ jobs:
     needs: [jest, phpunit]
     runs-on: ubuntu-latest
     steps:
-      - uses: 8398a7/action-slack@v1
+      - uses: 8398a7/action-slack@v2
         with:
-          type: success
+          status: success
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
