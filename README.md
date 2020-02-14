@@ -4,6 +4,8 @@
 [![codecov](https://codecov.io/gh/technote-space/test-github-actions/branch/master/graph/badge.svg)](https://codecov.io/gh/technote-space/test-github-actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/jquery.marker-animation/blob/master/LICENSE)
 
+## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <details>
@@ -30,14 +32,13 @@
 
 ## What I Tried
 
-### Issue opened
-- [GitHub Project Automation+](https://github.com/technote-space/create-project-card-action)
+### GitHub Project card
+- [Create Project Card Action](https://github.com/technote-space/create-project-card-action)
 
-### Pull Request opened
-- [GitHub Project Automation+](https://github.com/technote-space/create-project-card-action)
+### Add label by branch name
 - [PR Labeler](https://github.com/technote-space/pr-labeler-action)
 
-### Pull Request updated
+### Add label by files
 - [Pull Request Labeler](https://github.com/actions/labeler)
 
 ### GitHub Releases
@@ -48,25 +49,36 @@
 
 ## What I Created
 
-### Issue opened
+### Assign author to issue and PR
 - [Assign Author](https://github.com/technote-space/assign-author)
 
-### Pull Request opened
-- [Assign Author](https://github.com/technote-space/assign-author)
-
-### Project card moved
+### Add label by project card move
 - [Auto card labeler](https://github.com/technote-space/auto-card-labeler)
 
-### Released
+### Release GitHub Actions
 - [Release GitHub Actions](https://github.com/technote-space/release-github-actions)
-- [Package Version Check Action](https://github.com/technote-space/package-version-check-action)
 
-### Push
+### Create TOC
 - [TOC Generator](https://github.com/technote-space/toc-generator)
-- [Package Version Check Action](https://github.com/technote-space/package-version-check-action)
 
-### Schedule
+### Update dependencies
 - [Create PR Action](https://github.com/technote-space/create-pr-action)
+
+### PR Body
+- [Create PR Action](https://github.com/technote-space/create-pr-action)
+
+### Check version
+- [Package Version Check Action](https://github.com/technote-space/package-version-check-action)
+- [WP Version Check Action](https://github.com/technote-space/wp-version-check-action)
+
+### Git diff
+- [Get Diff Action](https://github.com/technote-space/get-diff-action)
+
+### Git comment
+- [Get git comment action](https://github.com/technote-space/get-git-comment-action)
+
+### Create PR Body by commit
+- [PR Commit Body Action](https://github.com/technote-space/pr-commit-body-action)
 
 ## Resources
 - [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)
