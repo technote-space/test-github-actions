@@ -92,6 +92,7 @@
       "yarn update"
     ],
     "update:composer": [
+      "rm -f composer.lock",
       "composer require laravel/framework",
       "composer require --dev codedungeon/phpunit-result-printer dealerdirect/phpcodesniffer-composer-installer phpmd/phpmd phpunit/phpunit squizlabs/php_codesniffer"
     ],
