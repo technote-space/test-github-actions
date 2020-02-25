@@ -94,7 +94,7 @@
     "update:composer": [
       "rm -f composer.lock",
       "composer require laravel/framework",
-      "composer require --dev codedungeon/phpunit-result-printer dealerdirect/phpcodesniffer-composer-installer phpmd/phpmd phpunit/phpunit squizlabs/php_codesniffer"
+      "composer require --dev codedungeon/phpunit-result-printer dealerdirect/phpcodesniffer-composer-installer phpmd/phpmd squizlabs/php_codesniffer"
     ],
     "update:packages": [
       "@update:node",
@@ -106,7 +106,5 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "process-timeout": 1200
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }
