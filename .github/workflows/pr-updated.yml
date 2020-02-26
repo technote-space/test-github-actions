@@ -31,17 +31,3 @@ jobs:
           TITLE: '## Changes'
           LINK_ISSUE_KEYWORD: ${{ (startsWith(github.event.pull_request.head.ref, 'release/') && 'closes') || '' }}
           FILTER_PR: true
-
-  checkVersion:
-    name: Check Version
-    runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.head.ref, 'release/')
-    steps:
-      - name: Get next version
-        uses: technote-space/get-next-version-action@gh-actions
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EXCLUDE_MESSAGES: |
-            update package version
-      - name: Dump
-        run: echo ${{ env.NEXT_VERSION }}

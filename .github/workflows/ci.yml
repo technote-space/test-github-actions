@@ -13,6 +13,21 @@ env:
   TRAVIS_BUILD_DIR: ${{ github.workspace }}
 
 jobs:
+  checkVersion:
+    name: Check Version
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && startsWith(github.event.pull_request.head.ref, 'release/')
+    steps:
+      - name: Get next version
+        uses: technote-space/get-next-version-action@gh-actions
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EXCLUDE_MESSAGES: |
+            update package version
+            update packages
+      - name: Dump
+        run: echo ${{ env.NEXT_VERSION }}
+
   eslint:
     name: ESLint
     runs-on: ubuntu-latest
