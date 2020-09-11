@@ -33,4 +33,9 @@ class Sample
     {
         return $item1 ** $item2;
     }
+
+    public function surplus($item1, $item2)
+    {
+        return $item1 % $item2;
+    }
 }
