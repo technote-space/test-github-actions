@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed, ready_for_review]
+
+name: Test
+
+jobs:
+  abc:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@gh-actions
+        with:
+          CHECK_ONLY_COMMIT_WHEN_DRAFT: true
+      - name: Test
+        run: echo "${{ env.GIT_DIFF }}"
