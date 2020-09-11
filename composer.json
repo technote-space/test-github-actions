@@ -37,9 +37,6 @@
     "squizlabs/php_codesniffer": "^3.5"
   },
   "scripts": {
-    "setup": [
-      "bash bin/setup.sh"
-    ],
     "prepare": [
       "@prepare:php",
       "@prepare:js"
