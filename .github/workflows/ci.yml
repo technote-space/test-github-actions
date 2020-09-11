@@ -285,7 +285,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.2', '7.3']
+        php: ['7.3', '7.4']
     steps:
       - name: Set running flag
         run: echo "::set-env name=RUNNING::1"
