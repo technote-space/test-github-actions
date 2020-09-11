@@ -36,4 +36,9 @@ class SampleTest extends TestCase
     {
         $this->assertEquals(8, (new Sample())->pow(2, 3));
     }
+
+    public function testSurplus()
+    {
+        $this->assertEquals(2, (new Sample())->surplus(11, 3));
+    }
 }
