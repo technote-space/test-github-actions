@@ -1,21 +1,21 @@
 {
     "name": "test-github-actions",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "description": "Test GitHub Actions",
+    "license": "MIT",
+    "author": "Technote <technote.space@gmail.com> (https://technote.space)",
     "scripts": {
-        "start": "yarn build",
-        "test": "yarn lint && yarn cover",
-        "test:update": "yarn lint && yarn cover:update",
-        "lint": "eslint 'resources/js/**/*.js'",
+        "build": "webpack --mode production --config webpack.config.js",
         "cover": "jest --coverage",
         "cover:update": "jest --coverage --updateSnapshot",
-        "stylelint": "stylelint 'resources/sass/**/*.scss'",
         "develop": "webpack --mode development --config webpack.config.js",
-        "build": "webpack --mode production --config webpack.config.js",
+        "lint": "eslint 'resources/js/**/*.js'",
+        "start": "yarn build",
+        "stylelint": "stylelint 'resources/sass/**/*.scss'",
+        "test": "yarn lint && yarn cover",
+        "test:update": "yarn lint && yarn cover:update",
         "update": "ncu -u --packageFile package.json && yarn install && yarn upgrade && yarn audit"
     },
-    "author": "Technote <technote.space@gmail.com> (https://technote.space)",
-    "license": "MIT",
     "dependencies": {
         "classnames": "^2.2.6"
     },
