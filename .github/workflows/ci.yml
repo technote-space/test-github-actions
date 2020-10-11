@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
@@ -33,7 +33,7 @@ jobs:
           FILES: .eslintrc
         if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::"
+        run: echo "RUNNING=" >> $GITHUB_ENV
         if: "! env.GIT_DIFF"
 
       - name: Get Yarn Cache Directory
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
@@ -81,7 +81,7 @@ jobs:
           FILES: .stylelintrc.json
         if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::"
+        run: echo "RUNNING=" >> $GITHUB_ENV
         if: "! env.GIT_DIFF"
 
       - name: Get Yarn Cache Directory
@@ -115,7 +115,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
@@ -125,7 +125,7 @@ jobs:
           FILES: phpcs.xml
         if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::"
+        run: echo "RUNNING=" >> $GITHUB_ENV
         if: "! env.GIT_DIFF"
 
       - name: Get Composer Cache Directory
@@ -160,7 +160,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
@@ -171,7 +171,7 @@ jobs:
           FILES: phpmd.xml
         if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::"
+        run: echo "RUNNING=" >> $GITHUB_ENV
         if: "! env.GIT_DIFF"
 
       - name: Get Composer Cache Directory
@@ -210,7 +210,7 @@ jobs:
         node: ['12', '14']
     steps:
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
@@ -228,15 +228,15 @@ jobs:
             jest.config.js
         if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::"
+        run: echo "RUNNING=" >> $GITHUB_ENV
         if: "! env.GIT_DIFF"
       - name: Set running flag
         if: matrix.node == '12' && startsWith(github.ref, 'refs/tags/')
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - name: Set running flag
         run: |
           if [[ ! -f package.json ]] || ! < package.json jq -r '.scripts | keys[]' | grep -qe '^cover$'; then
-            echo "::set-env name=RUNNING::"
+            echo "RUNNING=" >> $GITHUB_ENV
           fi
 
       - name: Setup node
@@ -288,7 +288,7 @@ jobs:
         php: ['7.3', '7.4']
     steps:
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
       - uses: technote-space/get-diff-action@v1
@@ -298,15 +298,15 @@ jobs:
           FILES: composer.lock
         if: "! contains(env.COMMIT_MESSAGE, '[skip ci]') && ! contains(env.COMMIT_MESSAGE, '[ci skip]')"
       - name: Set running flag
-        run: echo "::set-env name=RUNNING::"
+        run: echo "RUNNING=" >> $GITHUB_ENV
         if: "! env.GIT_DIFF"
       - name: Set running flag
         if: matrix.SEND_CODECOV == 1 && startsWith(github.ref, 'refs/tags/')
-        run: echo "::set-env name=RUNNING::1"
+        run: echo "RUNNING=1" >> $GITHUB_ENV
       - name: Set running flag
         run: |
           if [[ ! -f composer.json ]] || ! < composer.json jq -r '.scripts | keys[]' | grep -qe '^phpunit$'; then
-            echo "::set-env name=RUNNING::"
+            echo "RUNNING=" >> $GITHUB_ENV
           fi
 
       - name: Switch PHP version
