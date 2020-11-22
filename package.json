@@ -14,7 +14,7 @@
         "stylelint": "stylelint 'resources/sass/**/*.scss'",
         "test": "yarn lint && yarn cover",
         "test:update": "yarn lint && yarn cover:update",
-        "update": "ncu -u --packageFile package.json && yarn install && yarn upgrade && yarn audit"
+        "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
     },
     "dependencies": {
         "classnames": "^2.2.6"
