@@ -21,7 +21,7 @@ jobs:
         run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
-      - uses: technote-space/get-diff-action@v1
+      - uses: technote-space/get-diff-action@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PREFIX_FILTER: |
@@ -70,7 +70,7 @@ jobs:
         run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
-      - uses: technote-space/get-diff-action@v1
+      - uses: technote-space/get-diff-action@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PREFIX_FILTER: |
@@ -118,7 +118,7 @@ jobs:
         run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
-      - uses: technote-space/get-diff-action@v1
+      - uses: technote-space/get-diff-action@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUFFIX_FILTER: .php
@@ -163,7 +163,7 @@ jobs:
         run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
-      - uses: technote-space/get-diff-action@v1
+      - uses: technote-space/get-diff-action@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUFFIX_FILTER: .php
@@ -213,7 +213,7 @@ jobs:
         run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
-      - uses: technote-space/get-diff-action@v1
+      - uses: technote-space/get-diff-action@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PREFIX_FILTER: |
@@ -291,7 +291,7 @@ jobs:
         run: echo "RUNNING=1" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1
-      - uses: technote-space/get-diff-action@v1
+      - uses: technote-space/get-diff-action@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUFFIX_FILTER: .php
