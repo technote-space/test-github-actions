@@ -85,7 +85,7 @@
 - [PR Commit Body Action](https://github.com/technote-space/pr-commit-body-action)
 
 ## Resources
-- [About GitHub Actions](https://help.github.com/ja/articles/about-github-actions)
+- [About GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions)
 - [Automating your workflow with GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions)
 - [Awesome Actions](https://github.com/sdras/awesome-actions)
 
